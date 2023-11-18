@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.*;
 import java.util.*;
 
@@ -39,21 +36,21 @@ public class GameHelper {
 
         comCount++;
         int incr = 1;
-        if ((comCount % 2) == 1){
+        if ((comCount % 2) == 1) {
             incr = gridLength;
         }
-        while (!success & attempts++ < 200){
+        while (!success & attempts++ < 200) {
             location = (int) (Math.random() * gridSize);
             int x = 0;
             success = true;
-            while (success && x < comSize){
-                if (grid[location] == 0){
+            while (success && x < comSize) {
+                if (grid[location] == 0) {
                     coords[x++] = location;
                     location += incr;
-                    if (location >= gridSize){
+                    if (location >= gridSize) {
                         success = false;
                     }
-                    if (x > 0 && (location % gridLength == 0)){
+                    if (x > 0 && (location % gridLength == 0)) {
                         success = false;
                     }
                 }
@@ -62,7 +59,7 @@ public class GameHelper {
         int x = 0;
         int row = 0;
         int column = 0;
-        while   (x < comSize){
+        while (x < comSize) {
             grid[coords[x]] = 1;
             row = (int) (coords[x] / gridLength);
             column = coords[x] % gridLength;
